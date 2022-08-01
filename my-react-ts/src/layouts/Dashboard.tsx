@@ -5,12 +5,10 @@ import Navbar from '../components/navbar/Navbar'
 import Settings from './../components/Settings';
 
 const Dashboard: React.FC = ({ children }) => {
-  const handleDrawerToggle = () => console.log('123')
-
   return (
     <>
       <CssBaseline />
-      <Navbar onDrawerToggle={handleDrawerToggle} />
+      <Navbar />
       {children}
       <Outlet />
       <Settings />

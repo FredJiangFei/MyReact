@@ -2,8 +2,8 @@ import React from 'react'
 import DashboardLayout from './layouts/Dashboard'
 import AuthLayout from './layouts/Auth'
 
-import Default from './pages/dashboards/Default'
-import Analytics from './pages/dashboards/Analytics'
+import Default from './pages/dashboards'
+import Products from './pages/dashboards/Products'
 import Page404 from './pages/auth/Page404'
 
 import SignIn from "./pages/auth/SignIn";
@@ -23,8 +23,8 @@ const routes = [
         element: <Default />,
       },
       {
-        path: 'analytics',
-        element: <Analytics />,
+        path: 'products',
+        element: <Products />,
       },
     ],
   },

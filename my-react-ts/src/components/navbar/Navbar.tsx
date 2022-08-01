@@ -7,11 +7,10 @@ import NavbarUserDropdown from './NavbarUserDropdown';
 import useAuth from '../../hooks/useAuth';
 
 type NavbarProps = {
-  theme: {};
-  onDrawerToggle: React.MouseEventHandler<HTMLElement>;
+  theme: {}
 };
 
-const Navbar: React.FC<NavbarProps> = ({ onDrawerToggle }) => {
+const Navbar: React.FC<NavbarProps> = () => {
   const { user } = useAuth();
 
   return (
