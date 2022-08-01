@@ -27,10 +27,6 @@ function AuthProvider({ children }: { children: ReactNode }) {
 
       if (accessToken && isValidToken(accessToken)) {
         setSession(accessToken);
-
-        //   const response = await axios.get("/api/auth/my-account");
-        //   const { user } = response.data;
-
         dispatch({
           type: INITIALIZE,
           payload: {
@@ -53,16 +49,16 @@ function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signIn = async (email: string, password: string) => {
-    const response = await axios.post('/login', {
+    const res = await axios.post('/auth', {
       email,
       password,
     });
-    const { token, user } = response.data.value;
+    const { token, user } = res.data;
     setSession(token);
     dispatch({
       type: SIGN_IN,
       payload: {
-        user,
+        user
       },
     });
   };
@@ -95,7 +91,6 @@ function AuthProvider({ children }: { children: ReactNode }) {
     });
   };
 
-  const resetPassword = (email: string) => console.log(email);
 
   return (
     <AuthContext.Provider
@@ -104,8 +99,7 @@ function AuthProvider({ children }: { children: ReactNode }) {
         method: 'jwt',
         signIn,
         signOut,
-        signUp,
-        resetPassword,
+        signUp
       }}
     >
       {children}

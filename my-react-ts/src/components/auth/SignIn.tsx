@@ -34,8 +34,8 @@ function SignIn() {
   return (
     <Formik
       initialValues={{
-        email: 'elyte@456.com',
-        password: 'a123456789',
+        email: 'fred@123.com',
+        password: '123123',
         submit: false,
       }}
       validationSchema={schema}

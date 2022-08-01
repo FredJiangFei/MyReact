@@ -30,31 +30,5 @@ export type JWTContextType = {
     firstName: string,
     lastName: string
   ) => Promise<void>;
-  resetPassword: (email: string) => void;
 };
 
-export type Auth0ContextType = {
-  isAuthenticated: boolean;
-  isInitialized: boolean;
-  user: AuthUser;
-  method: "auth0";
-  signIn: () => Promise<void>;
-  signOut: VoidFunction;
-  resetPassword: (email: string) => void;
-};
-
-export type CognitoContextType = {
-  isAuthenticated: boolean;
-  isInitialized: boolean;
-  user: AuthUser;
-  method: "cognito";
-  signIn: (email: string, password: string) => Promise<unknown>;
-  signUp: (
-    email: string,
-    password: string,
-    firstName: string,
-    lastName: string
-  ) => Promise<unknown>;
-  signOut: VoidFunction;
-  resetPassword: (email: string) => void;
-};
