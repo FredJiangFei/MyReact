@@ -45,7 +45,8 @@ function Products() {
   }, []);
 
   const getProducts = async () => {
-    const res: any = await productService.getProducts();
+    const res: any = await productService.getProducts(1, 10);
+    console.log(res);
     setProducts(res.data.data);
   };
 
