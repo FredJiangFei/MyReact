@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Box, CssBaseline, Paper as MuiPaper } from '@mui/material';
 import Navbar from '../components/navbar/Navbar';
-import Settings from './../components/Settings';
 import styled from 'styled-components/macro';
 import { spacing } from '@mui/system';
 import Sidebar from '../components/sidebar/Sidebar';
@@ -85,7 +84,6 @@ const Dashboard: React.FC = ({ children }) => {
           <Outlet />
         </MainContent>
       </AppContent>
-      <Settings />
     </Root>
   );
 };
