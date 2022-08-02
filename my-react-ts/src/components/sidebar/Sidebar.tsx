@@ -1,21 +1,20 @@
-import React from "react";
-import styled from "styled-components/macro";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import styled from 'styled-components/macro';
+import { NavLink } from 'react-router-dom';
 
-import { spacing } from "@mui/system";
-import { green } from "@mui/material/colors";
+import { spacing } from '@mui/system';
+import { green } from '@mui/material/colors';
 
 import {
   Box as MuiBox,
   Chip,
   Drawer as MuiDrawer,
   ListItemButton,
-} from "@mui/material";
+} from '@mui/material';
 
-import { ReactComponent as Logo } from "../../vendor/logo.svg";
-import { SidebarItemsType } from "../../types/sidebar";
-import Footer from "./SidebarFooter";
-import SidebarNav from "./SidebarNav";
+import { ReactComponent as Logo } from '../../vendor/logo.svg';
+import { SidebarItemsType } from '../../types/sidebar';
+import SidebarNav from './SidebarNav';
 
 const Box = styled(MuiBox)(spacing);
 
@@ -43,7 +42,7 @@ const Brand = styled(ListItemButton)<{
   cursor: pointer;
   flex-grow: 0;
 
-  ${(props) => props.theme.breakpoints.up("sm")} {
+  ${(props) => props.theme.breakpoints.up('sm')} {
     min-height: 64px;
   }
 
@@ -82,31 +81,24 @@ export type SidebarProps = {
       width: number;
     };
   };
-  variant?: "permanent" | "persistent" | "temporary";
+  variant?: 'permanent' | 'persistent' | 'temporary';
   open?: boolean;
   onClose?: () => void;
   items: {
     title: string;
     pages: SidebarItemsType[];
   }[];
-  showFooter?: boolean;
 };
 
-const Sidebar: React.FC<SidebarProps> = ({
-  items,
-  showFooter = true,
-  ...rest
-}) => {
+const Sidebar: React.FC<SidebarProps> = ({ items, ...rest }) => {
   return (
     <Drawer variant="permanent" {...rest}>
       <Brand component={NavLink} to="/">
-        <BrandIcon />{" "}
         <Box ml={1}>
-          Material App <BrandChip label="PRO" />
+          Hello React
         </Box>
       </Brand>
       <SidebarNav items={items} />
-      {!!showFooter && <Footer />}
     </Drawer>
   );
 };

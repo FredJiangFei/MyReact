@@ -8,6 +8,7 @@ import Page404 from './pages/auth/Page404'
 
 import SignIn from "./pages/auth/SignIn";
 import AuthGuard from './components/guards/AuthGuard'
+import Profile from './pages/settings/Profile'
 
 const routes = [
   {
@@ -25,6 +26,10 @@ const routes = [
       {
         path: 'products',
         element: <Products />,
+      },
+      {
+        path: 'profile',
+        element: <Profile />,
       },
     ],
   },
