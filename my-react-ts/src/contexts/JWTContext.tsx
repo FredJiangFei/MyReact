@@ -2,13 +2,8 @@ import { createContext, ReactNode, useEffect, useReducer } from 'react';
 import { JWTContextType, AuthState } from '../types/auth';
 import axios from '../utils/axios';
 import { isValidToken, setSession } from '../utils/jwt';
-import {
-  INITIALIZE,
-  JWTReducer,
-  SIGN_IN,
-  SIGN_OUT,
-  SIGN_UP,
-} from './JWTReducer';
+import { INITIALIZE, SIGN_IN, SIGN_OUT, SIGN_UP } from './actions/AuthAction';
+import { JWTReducer } from './JWTReducer';
 
 const AuthContext = createContext<JWTContextType | null>(null);
 
@@ -58,7 +53,7 @@ function AuthProvider({ children }: { children: ReactNode }) {
     dispatch({
       type: SIGN_IN,
       payload: {
-        user
+        user,
       },
     });
   };
@@ -91,7 +86,6 @@ function AuthProvider({ children }: { children: ReactNode }) {
     });
   };
 
-
   return (
     <AuthContext.Provider
       value={{
@@ -99,7 +93,7 @@ function AuthProvider({ children }: { children: ReactNode }) {
         method: 'jwt',
         signIn,
         signOut,
-        signUp
+        signUp,
       }}
     >
       {children}

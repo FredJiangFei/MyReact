@@ -1,9 +1,9 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import styled from 'styled-components/macro'
-import { Link } from 'react-router-dom'
-import * as Yup from 'yup'
-import { Formik } from 'formik'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components/macro';
+import { Link } from 'react-router-dom';
+import * as Yup from 'yup';
+import { Formik } from 'formik';
 
 import {
   Alert as MuiAlert,
@@ -11,25 +11,25 @@ import {
   FormControlLabel,
   Button,
   TextField as MuiTextField,
-} from '@mui/material'
-import { spacing } from '@mui/system'
+} from '@mui/material';
+import { spacing } from '@mui/system';
 
-import useAuth from '../../hooks/useAuth'
+import useAuth from '../../hooks/useAuth';
 
-const Alert = styled(MuiAlert)(spacing)
-const TextField = styled(MuiTextField)<{ my?: number }>(spacing)
+const Alert = styled(MuiAlert)(spacing);
+const TextField = styled(MuiTextField)<{ my?: number }>(spacing);
 
 const schema = Yup.object().shape({
-    email: Yup.string()
-      .email('Must be a valid email')
-      .max(255)
-      .required('Email is required'),
-    password: Yup.string().max(255).required('Password is required'),
+  email: Yup.string()
+    .email('Must be a valid email')
+    .max(255)
+    .required('Email is required'),
+  password: Yup.string().max(255).required('Password is required'),
 });
 
 function SignIn() {
-  const navigate = useNavigate()
-  const { signIn } = useAuth()
+  const navigate = useNavigate();
+  const { signIn } = useAuth();
 
   return (
     <Formik
@@ -41,15 +41,15 @@ function SignIn() {
       validationSchema={schema}
       onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
         try {
-          await signIn(values.email, values.password)
+          await signIn(values.email, values.password);
 
-          navigate('/')
+          navigate('/');
         } catch (error: any) {
-          const message = error.message || 'Something went wrong'
+          const message = error.message || 'Something went wrong';
 
-          setStatus({ success: false })
-          setErrors({ submit: message })
-          setSubmitting(false)
+          setStatus({ success: false });
+          setErrors({ submit: message });
+          setSubmitting(false);
         }
       }}
     >
@@ -116,7 +116,7 @@ function SignIn() {
         </form>
       )}
     </Formik>
-  )
+  );
 }
 
-export default SignIn
+export default SignIn;

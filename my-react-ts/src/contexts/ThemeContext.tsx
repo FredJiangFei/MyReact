@@ -14,7 +14,6 @@ type ThemeProviderProps = {
 function ThemeProvider({ children }: ThemeProviderProps) {
   const initialState = () => {
     const storedTheme = localStorage.getItem("theme");
-
     return storedTheme ? JSON.parse(storedTheme) : THEMES.DEFAULT;
   };
 

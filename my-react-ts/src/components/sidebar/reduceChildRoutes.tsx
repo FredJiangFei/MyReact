@@ -1,6 +1,5 @@
 import React from 'react';
 import { matchPath } from 'react-router-dom';
-
 import { SidebarItemsType } from '../../types/sidebar';
 import SidebarNavListItem from './SidebarNavListItem';
 import SidebarNavList from './SidebarNavList';

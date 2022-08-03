@@ -1,14 +1,12 @@
-import React from "react";
-import styled, { css } from "styled-components/macro";
-import ReactPerfectScrollbar from "react-perfect-scrollbar";
-import { List } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
-
-import { SidebarItemsType } from "../../types/sidebar";
-import SidebarNavSection from "./SidebarNavSection";
-
-import "../../vendor/perfect-scrollbar.css";
+import React from 'react';
+import styled, { css } from 'styled-components/macro';
+import ReactPerfectScrollbar from 'react-perfect-scrollbar';
+import { List } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { SidebarItemsType } from '../../types/sidebar';
+import SidebarNavSection from './SidebarNavSection';
+import '../../vendor/perfect-scrollbar.css';
 
 const baseScrollbar = css`
   background-color: ${(props) => props.theme.sidebar.background};
@@ -38,7 +36,7 @@ type SidebarNavProps = {
 
 const SidebarNav: React.FC<SidebarNavProps> = ({ items }) => {
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up("md"));
+  const matches = useMediaQuery(theme.breakpoints.up('md'));
   const ScrollbarComponent = (
     matches ? PerfectScrollbar : Scrollbar
   ) as React.ElementType;
@@ -48,12 +46,12 @@ const SidebarNav: React.FC<SidebarNavProps> = ({ items }) => {
       <List disablePadding>
         <Items>
           {items &&
-            items.map((item) => (
+            items.map((i) => (
               <SidebarNavSection
                 component="div"
-                key={item.title}
-                pages={item.pages}
-                title={item.title}
+                key={i.title}
+                pages={i.pages}
+                title={i.title}
               />
             ))}
         </Items>
